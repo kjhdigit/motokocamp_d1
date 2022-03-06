@@ -73,14 +73,11 @@ actor {
     };
 
 // c9
-    public func remove_from_array(nums : [Nat], n : Nat) : async [Nat] {
-        var newArr : [Nat] = [];
-        for (num in nums.vals()) {
-            if (n != num) {
-                newArr := Array.append<Nat>(newArr, [num]);
-            };
-        };
-        return newArr;
+
+    public func remove_from_array(array : [Nat], n : Nat) : async [Nat]{
+        return Array.filter(array, func (x: Nat) : Bool {
+         return x != n
+        });
     };
 
 // c10
